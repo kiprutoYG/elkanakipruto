@@ -16,11 +16,11 @@ const ParticlesComponent = () => {
       init={particlesInit}
       options={{
         background: {
-          color: "#ff000",
+          color: "",
         },
         particles: {
           number: {
-            value: 100,
+            value: 200,
           },
           size: {
             value: 2,
@@ -31,8 +31,8 @@ const ParticlesComponent = () => {
           },
           links: {
             enable: true,
-            distance: 100,
-            color: "#ffffff",
+            distance: 200,
+            color: "#c8fcea",
             opacity: 0.4,
           },
         },
@@ -40,7 +40,7 @@ const ParticlesComponent = () => {
           events: {
             onHover: {
               enable: true,
-              mode: "grab",
+              mode: "repulse",
             },
           },
         },

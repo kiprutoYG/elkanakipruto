@@ -9,7 +9,8 @@ const navigation = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/60 to-black">
+    <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-main via-secondary to-main">
+      <ParticlesComponent/>
       <nav className="my-16 animate-fade-in">
         <ul className="flex items-center justify-center gap-4">
           {navigation.map((item) => (
@@ -24,10 +25,9 @@ export default function Home() {
         </ul>
       </nav>
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <ParticlesComponent/>
-      <p>I am Yegon Elkana, <span className="font-bold">/Welcome</span> to my portfolio</p>
-
+        
+        <p className="text-thro text-lg">I am Yegon Elkana, <span className="animate-glow text-xl drop-shadow-md animate-pulse">{`</Welcome>`}</span> to my portfolio</p>
       <div/>
-      </div>
+    </div>
   );
 }
