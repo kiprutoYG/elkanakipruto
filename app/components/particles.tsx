@@ -20,18 +20,18 @@ const ParticlesComponent = () => {
         },
         particles: {
           number: {
-            value: 200,
+            value: 100,
           },
           size: {
             value: 2,
           },
           move: {
             enable: true,
-            speed: 2,
+            speed: 1,
           },
           links: {
             enable: true,
-            distance: 200,
+            distance: 100,
             color: "#c8fcea",
             opacity: 0.4,
           },
