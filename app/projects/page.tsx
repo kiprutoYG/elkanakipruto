@@ -4,38 +4,48 @@ import { useState } from "react";
 import React from "react";
 import {motion} from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 
 
 const projects = [
     {title: "WeatherNow",
         date: "2025-02-01",
         description: "A weather app that shows the current weather in your location",
+        technologies: "ReactJS for the frontend, OpenWeatherMap API for real time weather data , TailwindCSS for stying, and ExpressJS to handle the API requests",
         url: "https://weatherapp-self-phi.vercel.app"
     },
 
     {title: "BoderTact",
         date: "2024-08-20",
         description: "A modern website to showcase the solutions offered by BoderTact in customs",
+        technologies: "ReactJS for the frontend and TailwindCSS for stying, no backend",
         url: "https://bodertact.vercel.app"
     },
     {title: "Porto Alegre Flood Report",
         date: "2024-06-20",
         description: "A website showcasing the detailed report of a flood mapping project done to assess the severity of the damage El Niño caused in Porto Alegre",
+        technologies: "NextJS for the frontend and TailwindCSS for stying, no backend",
         url: "https://portoalegrereport.vercel.app/"
+    },
+    {title: "Karura Forest Deforestation Monitoring Dashboard",
+        date: "2025-03-20",
+        description: "The Karura Forest Deforestation Monitoring Dashboard is a geospatial web application designed to track and analyze deforestation trends within Karura Forest. This project integrates cutting-edge geospatial technologies with web development to provide real-time insights into forest cover changes.",
+        technologies: "NextJS for the frontend, LeafletJS for the imagery embedding, ESRI for real time satellite imagery, NewsAPI for real time news updates on forestry, ExpressJS to handle the API requests, Recharts for dynamic forest cover trend as a graph, and TailwindCSS for stying",
+        url: "https://karura-analysis-client.vercel.app/"
     },
 ]
 
 export default function Projects() {
     const [openIndex, setisOpenIndex] = useState<number | null>(null);
+    const router = useRouter();
 
     return (
         <div className="max-w-7xl mx-auto px-6">
-            <nav className="py-6">
-                <Link
-                href="/contact">Contact</Link>
-                <hr className="w-full h-px opacity-25"/>
-            </nav>
-            <h1 className="text-lg md:text-4xl font-bold pb-3">Projects</h1>
+            <button onClick={() => router.push("/")} className="absolute top-6 right-6 flex items-center text-white hover:text-gray-300 transition-all">
+                <ArrowLeft size = {18} className="mr-2"/> <span className=" text-sm">Back</span>
+            </button>
+            <h1 className="text-lg md:text-4xl font-bold py-3">Projects</h1>
             <h2 className="text-gray-400 pb-3 md:pb-14">Some of the projects are geospatial and some are development</h2>
             <hr className="py-6 shadow-lg border-1 h-px opacity-25"/>
             <div className="space-y-6"> 
@@ -60,6 +70,9 @@ export default function Projects() {
                             className="mt-4 text-gray-300"
                         >
                         <p>{project.description}</p>
+                        <p className="py-3 font-semibold text-thro">Technologies used:</p>
+                        <p className="mt-2">{project.technologies}</p>
+                        <hr className="my-4 border-1 h-px opacity-25"/>
                         <Link
                         href={project.url}
                         target="_blank"
